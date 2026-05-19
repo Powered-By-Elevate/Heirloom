@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm --version)",
+      "Bash(git --version)",
+      "Bash(corepack enable *)",
+      "Bash(corepack prepare *)",
+      "Bash(npx --yes create-next-app@latest . --typescript --tailwind --app --eslint --src-dir --use-npm --no-turbopack --import-alias \"@/*\")",
+      "PowerShell(Move-Item -Destination . -Force)",
+      "Bash(npm install *)",
+      "Bash(npx --yes shadcn@latest init -y -b stone)",
+      "Bash(npx --yes shadcn@latest init -y -b base)",
+      "Bash(npx --yes shadcn@4.6.0 init -y -b stone)",
+      "Bash(npx --yes shadcn@4.6.0 add button input textarea form card badge dialog dropdown-menu select label sonner -y -o)",
+      "Bash(npx tsc *)",
+      "Bash(npm run *)",
+      "Bash(npx --yes shadcn@4.6.0 add popover command -y -o)",
+      "Bash(npm uninstall *)",
+      "Bash(git -C \"C:\\\\Users\\\\MatthewKnowles\\\\Downloads\\\\Heirloom\" status --short)",
+      "Bash(gh --version)",
+      "Bash(git -C \"C:\\\\Users\\\\MatthewKnowles\\\\Downloads\\\\Heirloom\" config user.email)",
+      "Bash(git -C \"C:\\\\Users\\\\MatthewKnowles\\\\Downloads\\\\Heirloom\" config user.name)",
+      "Bash(git config *)",
+      "Bash(git -C \"C:\\\\Users\\\\MatthewKnowles\\\\Downloads\\\\Heirloom\" add -A)"
+    ]
+  }
+}
