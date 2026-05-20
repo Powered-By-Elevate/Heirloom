@@ -17,12 +17,13 @@ export default async function Home() {
         <h1 className="font-serif text-5xl md:text-6xl text-foreground leading-tight">
           The recipes that
           <br />
-          keep coming back.
+          taste like home.
         </h1>
         <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-          A shared cookbook for the food your family actually cooks. Add your
-          recipes, invite the people you cook with, and keep everything that
-          matters in one place.
+          Grandma&apos;s banana bread. Mom&apos;s chili. The dinner your kid
+          calls home asking how to make. A shared cookbook for the food that
+          matters most — gathered in one place for the people who&apos;ll cook
+          it next.
         </p>
         <div className="mt-10 flex flex-col sm:flex-row gap-3 justify-center">
           <Button asChild size="lg" className="px-8">
