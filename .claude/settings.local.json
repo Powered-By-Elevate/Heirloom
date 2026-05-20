@@ -34,7 +34,17 @@
       "Read(//tmp/**)",
       "Bash(git -C \"C:\\\\Users\\\\MatthewKnowles\\\\Downloads\\\\Heirloom\" add next.config.ts)",
       "Bash(curl -s -o /tmp/heirloom-deploy.html -w \"STATUS:%{http_code}\\\\nFINAL_URL:%{url_effective}\\\\n\" -L https://heirloom-oa1ulpox8-powered-by-elevates-projects.vercel.app/)",
-      "Bash(git -C \"C:\\\\Users\\\\MatthewKnowles\\\\Downloads\\\\Heirloom\" push origin main)"
+      "Bash(git -C \"C:\\\\Users\\\\MatthewKnowles\\\\Downloads\\\\Heirloom\" push origin main)",
+      "Bash(curl -s -o /tmp/r1.html -w \"STATUS:%{http_code}\\\\n\" https://heirloom-orcin.vercel.app/)",
+      "Bash(curl -s -o /tmp/r2.html -w \"STATUS:%{http_code}\\\\n\" https://heirloom-oa1ulpox8-powered-by-elevates-projects.vercel.app/)",
+      "Bash(git -C \"C:\\\\Users\\\\MatthewKnowles\\\\Downloads\\\\Heirloom\" log --oneline origin/main..HEAD)",
+      "Bash(git -C \"C:\\\\Users\\\\MatthewKnowles\\\\Downloads\\\\Heirloom\" log --oneline -5)",
+      "Bash(curl -s -o /tmp/r3.html -w \"STATUS:%{http_code}\\\\n\" https://heirloom-dw9nop2m2-powered-by-elevates-projects.vercel.app/)",
+      "Bash(curl -s -o /dev/null -w \"STATUS:%{http_code}\\\\n\" https://heirloom-dw9nop2m2-powered-by-elevates-projects.vercel.app/login)",
+      "Bash(curl -s -o /dev/null -w \"STATUS:%{http_code}\\\\n\" https://heirloom-dw9nop2m2-powered-by-elevates-projects.vercel.app/privacy)",
+      "Bash(curl -sI https://heirloom-dw9nop2m2-powered-by-elevates-projects.vercel.app/)",
+      "Bash(git -C \"C:\\\\Users\\\\MatthewKnowles\\\\Downloads\\\\Heirloom\" add src/app/page.tsx)",
+      "Bash(git -C \"C:\\\\Users\\\\MatthewKnowles\\\\Downloads\\\\Heirloom\" add src/app/login/page.tsx)"
     ]
   }
 }

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { AuthForm } from "../_auth/AuthForm";
 
 export const metadata: Metadata = {
@@ -8,10 +9,12 @@ export const metadata: Metadata = {
 
 export default function SignupPage() {
   return (
-    <AuthForm
-      mode="signup"
-      title="Start your cookbook"
-      subtitle="A shared cookbook for the food your family loves."
-    />
+    <Suspense fallback={null}>
+      <AuthForm
+        mode="signup"
+        title="Start your cookbook"
+        subtitle="A shared cookbook for the food your family loves."
+      />
+    </Suspense>
   );
 }

@@ -10,7 +10,7 @@ import { AppHeader } from "@/components/AppHeader";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { Plus } from "lucide-react";
+import { Plus, Settings } from "lucide-react";
 import { CatalogSearch } from "./CatalogSearch";
 import type { Catalog, Recipe, Tag, CatalogRole } from "@/lib/types";
 
@@ -110,14 +110,22 @@ export default async function CatalogHomePage({
               </p>
             ) : null}
           </div>
-          {canAdd ? (
-            <Button asChild size="lg">
-              <Link href={`/c/${catalogId}/recipe/new`}>
-                <Plus className="size-4" />
-                Add a recipe
+          <div className="flex items-center gap-2">
+            <Button asChild size="lg" variant="outline">
+              <Link href={`/c/${catalogId}/settings`}>
+                <Settings className="size-4" />
+                Settings
               </Link>
             </Button>
-          ) : null}
+            {canAdd ? (
+              <Button asChild size="lg">
+                <Link href={`/c/${catalogId}/recipe/new`}>
+                  <Plus className="size-4" />
+                  Add a recipe
+                </Link>
+              </Button>
+            ) : null}
+          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-[220px_1fr] gap-8">

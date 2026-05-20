@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -17,8 +17,19 @@ interface AuthFormProps {
   subtitle: string;
 }
 
+// Only redirect to in-app paths to avoid open-redirect vulnerabilities.
+function safeNext(next: string | null): string {
+  if (!next) return "/catalogs";
+  if (!next.startsWith("/")) return "/catalogs";
+  if (next.startsWith("//")) return "/catalogs";
+  return next;
+}
+
 export function AuthForm({ mode, title, subtitle }: AuthFormProps) {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const next = safeNext(searchParams.get("next"));
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -40,7 +51,7 @@ export function AuthForm({ mode, title, subtitle }: AuthFormProps) {
       return;
     }
 
-    router.push("/catalogs");
+    router.push(next);
     router.refresh();
   }
 
@@ -48,6 +59,10 @@ export function AuthForm({ mode, title, subtitle }: AuthFormProps) {
   const otherLabel =
     mode === "login" ? "Need an account?" : "Already have one?";
   const otherCta = mode === "login" ? "Sign up" : "Sign in";
+  const otherHref =
+    next && next !== "/catalogs"
+      ? `/${otherMode}?next=${encodeURIComponent(next)}`
+      : `/${otherMode}`;
 
   return (
     <div className="flex flex-1 items-center justify-center px-6 py-20">
@@ -125,7 +140,7 @@ export function AuthForm({ mode, title, subtitle }: AuthFormProps) {
         <p className="mt-6 text-center text-sm text-muted-foreground">
           {otherLabel}{" "}
           <Link
-            href={`/${otherMode}`}
+            href={otherHref}
             className="text-primary underline-offset-4 hover:underline font-medium"
           >
             {otherCta}
