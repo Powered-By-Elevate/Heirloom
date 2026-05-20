@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
-  description: "The terms that apply to your use of Heirloom.",
+  description: "The terms that apply to your use of From Our Table.",
 };
 
 const lastUpdated = "May 19, 2026";
@@ -26,7 +26,7 @@ export default function TermsPage() {
 
       <div className="prose prose-stone mt-8 max-w-none">
         <p>
-          By using Heirloom, you agree to these Terms. If you don&apos;t agree,
+          By using From Our Table, you agree to these Terms. If you don&apos;t agree,
           please don&apos;t use the service.
         </p>
 
@@ -82,7 +82,7 @@ export default function TermsPage() {
           Disclaimer
         </h2>
         <p>
-          Heirloom is provided &ldquo;as is&rdquo; without warranties of any
+          From Our Table is provided &ldquo;as is&rdquo; without warranties of any
           kind. Recipes are user-submitted content; we don&apos;t verify
           accuracy or food-safety. Use your judgment.
         </p>

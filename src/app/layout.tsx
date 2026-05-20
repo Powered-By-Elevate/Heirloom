@@ -1,32 +1,32 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Inter } from "next/font/google";
+import { Yeseva_One, Nunito_Sans } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const nunito = Nunito_Sans({
+  variable: "--font-nunito-sans",
   subsets: ["latin"],
   display: "swap",
 });
 
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
+const yeseva = Yeseva_One({
+  variable: "--font-yeseva-one",
   subsets: ["latin"],
+  weight: "400",
   display: "swap",
-  axes: ["opsz", "SOFT"],
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "Heirloom — Family Cookbook",
-    template: "%s · Heirloom",
+    default: "From Our Table — Family Cookbook",
+    template: "%s · From Our Table",
   },
   description:
-    "A shared digital cookbook where families preserve, organize, and pass down recipes across generations.",
-  applicationName: "Heirloom",
+    "A shared cookbook for the recipes your family loves — passed between friends, family, and generations.",
+  applicationName: "From Our Table",
   appleWebApp: {
     capable: true,
-    title: "Heirloom",
+    title: "From Our Table",
     statusBarStyle: "default",
   },
   formatDetection: { telephone: false },
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#C66B3D",
+  themeColor: "#C48A4A",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -50,7 +50,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${fraunces.variable} h-full antialiased`}
+      className={`${nunito.variable} ${yeseva.variable} h-full antialiased`}
     >
       <body
         className="min-h-full flex flex-col"

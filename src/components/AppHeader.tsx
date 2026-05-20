@@ -16,7 +16,7 @@ export function AppHeader({ catalogName, rightSlot }: AppHeaderProps) {
             href="/catalogs"
             className="font-serif text-2xl text-foreground hover:text-primary transition-colors"
           >
-            Heirloom
+            From Our Table
           </Link>
           {catalogName ? (
             <>

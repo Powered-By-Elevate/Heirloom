@@ -3,7 +3,7 @@ import { AuthForm } from "../_auth/AuthForm";
 
 export const metadata: Metadata = {
   title: "Create account",
-  description: "Start your shared family cookbook on Heirloom.",
+  description: "Start your shared family cookbook on From Our Table.",
 };
 
 export default function SignupPage() {
@@ -11,7 +11,7 @@ export default function SignupPage() {
     <AuthForm
       mode="signup"
       title="Start your cookbook"
-      subtitle="We'll email you a magic link — no password to remember."
+      subtitle="A shared cookbook for the food your family loves."
     />
   );
 }

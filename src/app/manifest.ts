@@ -2,16 +2,16 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Heirloom — Family Cookbook",
-    short_name: "Heirloom",
+    name: "From Our Table — Family Cookbook",
+    short_name: "From Our Table",
     description:
-      "A shared digital cookbook where families preserve, organize, and pass down recipes.",
+      "A shared cookbook for the recipes your family loves — passed between friends, family, and generations.",
     start_url: "/",
     scope: "/",
     display: "standalone",
     orientation: "portrait",
-    background_color: "#FAF6EF",
-    theme_color: "#C66B3D",
+    background_color: "#F8F4EC",
+    theme_color: "#C48A4A",
     icons: [
       { src: "/icon", sizes: "192x192", type: "image/png", purpose: "any" },
       {

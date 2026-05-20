@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "How Heirloom collects, uses, and protects your information.",
+  description: "How From Our Table collects, uses, and protects your information.",
 };
 
 const lastUpdated = "May 19, 2026";
@@ -24,7 +24,7 @@ export default function PrivacyPage() {
 
       <div className="prose prose-stone mt-8 max-w-none">
         <p>
-          Heirloom (&ldquo;we,&rdquo; &ldquo;us&rdquo;) is a shared digital
+          From Our Table (&ldquo;we,&rdquo; &ldquo;us&rdquo;) is a shared digital
           cookbook. This Privacy Policy describes what we collect, how we use it,
           and the controls available to you.
         </p>
@@ -56,7 +56,7 @@ export default function PrivacyPage() {
           How we use it
         </h2>
         <ul className="list-disc pl-6 space-y-1 text-foreground/90">
-          <li>To operate Heirloom and keep your cookbook accessible.</li>
+          <li>To operate From Our Table and keep your cookbook accessible.</li>
           <li>To authenticate you and protect your account.</li>
           <li>
             To extract structured recipe data from images you upload (we send
@@ -116,7 +116,7 @@ export default function PrivacyPage() {
           Children
         </h2>
         <p>
-          Heirloom is not directed to children under 13. We do not knowingly
+          From Our Table is not directed to children under 13. We do not knowingly
           collect personal information from children under 13.
         </p>
 

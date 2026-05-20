@@ -21,7 +21,20 @@
       "Bash(git -C \"C:\\\\Users\\\\MatthewKnowles\\\\Downloads\\\\Heirloom\" config user.email)",
       "Bash(git -C \"C:\\\\Users\\\\MatthewKnowles\\\\Downloads\\\\Heirloom\" config user.name)",
       "Bash(git config *)",
-      "Bash(git -C \"C:\\\\Users\\\\MatthewKnowles\\\\Downloads\\\\Heirloom\" add -A)"
+      "Bash(git -C \"C:\\\\Users\\\\MatthewKnowles\\\\Downloads\\\\Heirloom\" add -A)",
+      "Bash(git -C 'C:\\\\Users\\\\MatthewKnowles\\\\Downloads\\\\Heirloom' commit -m ' *)",
+      "Bash(git -C \"C:\\\\Users\\\\MatthewKnowles\\\\Downloads\\\\Heirloom\" branch -M main)",
+      "Bash(git -C \"C:\\\\Users\\\\MatthewKnowles\\\\Downloads\\\\Heirloom\" remote add origin https://github.com/Powered-By-Elevate/Heirloom.git)",
+      "Bash(git -C \"C:\\\\Users\\\\MatthewKnowles\\\\Downloads\\\\Heirloom\" push -u origin main)",
+      "Bash(git -C \"C:\\\\Users\\\\MatthewKnowles\\\\Downloads\\\\Heirloom\" fetch origin main)",
+      "Bash(git -C \"C:\\\\Users\\\\MatthewKnowles\\\\Downloads\\\\Heirloom\" log origin/main --oneline)",
+      "Bash(git -C \"C:\\\\Users\\\\MatthewKnowles\\\\Downloads\\\\Heirloom\" show --stat origin/main)",
+      "Bash(git -C \"C:\\\\Users\\\\MatthewKnowles\\\\Downloads\\\\Heirloom\" push -u origin main --force)",
+      "Bash(curl -s -o /tmp/heirloom-resp.html -w \"STATUS:%{http_code}\\\\nTIME:%{time_total}s\\\\n\" https://heirloom-orcin.vercel.app/)",
+      "Read(//tmp/**)",
+      "Bash(git -C \"C:\\\\Users\\\\MatthewKnowles\\\\Downloads\\\\Heirloom\" add next.config.ts)",
+      "Bash(curl -s -o /tmp/heirloom-deploy.html -w \"STATUS:%{http_code}\\\\nFINAL_URL:%{url_effective}\\\\n\" -L https://heirloom-oa1ulpox8-powered-by-elevates-projects.vercel.app/)",
+      "Bash(git -C \"C:\\\\Users\\\\MatthewKnowles\\\\Downloads\\\\Heirloom\" push origin main)"
     ]
   }
 }
