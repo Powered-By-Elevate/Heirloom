@@ -10,6 +10,7 @@ const TagsInputSchema = z.object({
 });
 
 const RecipeInputSchema = z.object({
+  id: z.string().uuid().optional(),
   catalog_id: z.string().uuid(),
   title: z.string().trim().min(1, "Recipe needs a title").max(200),
   description: z.string().trim().max(2000).optional().nullable(),
@@ -17,6 +18,7 @@ const RecipeInputSchema = z.object({
   cook_time_minutes: z.number().int().min(0).max(1440).optional().nullable(),
   servings: z.number().int().min(1).max(100).optional().nullable(),
   notes: z.string().trim().max(2000).optional().nullable(),
+  dish_photo_url: z.string().url().optional().nullable(),
   ingredients: z
     .array(
       z.object({
@@ -63,6 +65,7 @@ export async function createRecipe(
   const { data: recipe, error: recipeErr } = await supabase
     .from("recipes")
     .insert({
+      ...(data.id ? { id: data.id } : {}),
       catalog_id: data.catalog_id,
       title: data.title,
       description: data.description || null,
@@ -71,6 +74,7 @@ export async function createRecipe(
       cook_time_minutes: data.cook_time_minutes ?? null,
       servings: data.servings ?? null,
       notes: data.notes || null,
+      dish_photo_url: data.dish_photo_url || null,
     })
     .select("id")
     .single();

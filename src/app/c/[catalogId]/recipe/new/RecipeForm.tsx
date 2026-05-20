@@ -10,6 +10,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { toast } from "sonner";
 import { Plus, X } from "lucide-react";
 import { TagPicker, type TagPickerSelection } from "@/components/TagPicker";
+import { PhotoUploader } from "@/components/PhotoUploader";
 import { createRecipe, type RecipeInput } from "./actions";
 import type { Tag } from "@/lib/types";
 
@@ -43,6 +44,10 @@ export function RecipeForm({
   personTags,
 }: RecipeFormProps) {
   const [submitting, setSubmitting] = useState(false);
+  // Generate a stable recipe id once so the photo upload path and the eventual
+  // DB row id match. crypto.randomUUID is available on all modern browsers.
+  const [recipeId] = useState(() => crypto.randomUUID());
+  const [dishPhotoUrl, setDishPhotoUrl] = useState<string | null>(null);
   const [occasions, setOccasions] = useState<TagPickerSelection>({
     selectedExistingIds: [],
     newNames: [],
@@ -85,6 +90,7 @@ export function RecipeForm({
       .filter((i) => i.step.length > 0);
 
     const payload: RecipeInput = {
+      id: recipeId,
       catalog_id: catalogId,
       title: values.title.trim(),
       description: values.description.trim() || null,
@@ -92,6 +98,7 @@ export function RecipeForm({
       cook_time_minutes: toIntOrNull(values.cook_time_minutes),
       servings: toIntOrNull(values.servings),
       notes: values.notes.trim() || null,
+      dish_photo_url: dishPhotoUrl,
       ingredients: cleanedIngredients,
       instructions: cleanedInstructions,
       occasion_tags: {
@@ -116,6 +123,16 @@ export function RecipeForm({
     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
       <Card className="bg-card border-border/60">
         <CardContent className="pt-6 space-y-5">
+          <PhotoUploader
+            bucket="dish-photos"
+            catalogId={catalogId}
+            recipeId={recipeId}
+            value={dishPhotoUrl}
+            onChange={setDishPhotoUrl}
+            label="Dish photo"
+            helpText="optional"
+          />
+
           <div className="space-y-2">
             <Label htmlFor="title">Title</Label>
             <Input

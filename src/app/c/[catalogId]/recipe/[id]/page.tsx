@@ -104,7 +104,18 @@ export default async function RecipeDetailPage({ params }: PageProps) {
           ← Back to {(catalog as Catalog).name}
         </Link>
 
-        <header className="mt-4 mb-2">
+        {r.dish_photo_url ? (
+          <div className="mt-4 rounded-lg overflow-hidden border border-border bg-muted">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={r.dish_photo_url}
+              alt={r.title}
+              className="w-full max-h-[480px] object-cover"
+            />
+          </div>
+        ) : null}
+
+        <header className="mt-6 mb-2">
           <h1 className="font-serif text-5xl text-foreground leading-tight">
             {r.title}
           </h1>

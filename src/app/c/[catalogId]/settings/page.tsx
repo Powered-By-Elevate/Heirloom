@@ -7,6 +7,7 @@ import { AppHeader } from "@/components/AppHeader";
 import { InviteSection } from "./InviteSection";
 import { MembersList, type MemberRow } from "./MembersList";
 import { LeaveCookbookSection } from "./LeaveCookbookSection";
+import { DeleteCookbookSection } from "./DeleteCookbookSection";
 import { getSiteUrl } from "@/lib/get-site-url";
 import type { Catalog, CatalogRole } from "@/lib/types";
 
@@ -109,6 +110,10 @@ export default async function CatalogSettingsPage({ params }: PageProps) {
 
         {!isOwner ? (
           <LeaveCookbookSection catalogId={catalogId} catalogName={cat.name} />
+        ) : null}
+
+        {isOwner ? (
+          <DeleteCookbookSection catalogId={catalogId} catalogName={cat.name} />
         ) : null}
       </main>
     </>

@@ -129,6 +129,46 @@ export async function updateMemberRole(
   return { ok: true };
 }
 
+const DeleteCatalogSchema = z.object({
+  catalog_id: z.string().uuid(),
+  confirmation: z.string(),
+});
+
+export async function deleteCatalog(
+  input: z.infer<typeof DeleteCatalogSchema>,
+): Promise<Result> {
+  const parsed = DeleteCatalogSchema.safeParse(input);
+  if (!parsed.success) return { ok: false, error: "Invalid input" };
+
+  const { supabase, allowed } = await assertOwner(parsed.data.catalog_id);
+  if (!allowed) return { ok: false, error: "Only the owner can delete the cookbook" };
+
+  // Verify the typed confirmation matches the cookbook name to guard against
+  // accidental deletion. The catalog name is the source of truth.
+  const { data: cat } = await supabase
+    .from("catalogs")
+    .select("name")
+    .eq("id", parsed.data.catalog_id)
+    .single();
+  if (!cat) return { ok: false, error: "Cookbook not found" };
+  if (parsed.data.confirmation !== cat.name) {
+    return {
+      ok: false,
+      error: "Type the cookbook name exactly to confirm",
+    };
+  }
+
+  const { error } = await supabase
+    .from("catalogs")
+    .delete()
+    .eq("id", parsed.data.catalog_id);
+  if (error) return { ok: false, error: error.message };
+
+  // Storage cleanup is best-effort — orphan files cost negligible space and
+  // can be cleaned up later via a script. The DB delete cascades all rows.
+  redirect("/catalogs");
+}
+
 const LeaveSchema = z.object({ catalog_id: z.string().uuid() });
 
 export async function leaveCatalog(
