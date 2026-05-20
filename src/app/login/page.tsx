@@ -11,7 +11,7 @@ export default function LoginPage() {
     <AuthForm
       mode="login"
       title="Welcome back"
-      subtitle="Sign in to your family's cookbook."
+      subtitle="Sign in to your account."
     />
   );
 }
